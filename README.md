@@ -1,0 +1,1 @@
+I would like to use this repository to record my study of JavaScript.
