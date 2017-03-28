@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>控制div属性</title>
+	<style type="text/css">
+		#outer{
+			width: 500px;
+			margin: 0 auto;
+			padding: 0;
+			text-align: center;
+		}
+		#div1{
+			width: 100px;
+			height: 100px;
+			margin: 10px auto;
+			background: black;
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+		var changeStyle = function(elem,attr,value) {
+			/* Act on the event */
+			elem.style[attr]=value;
+		};
+		window.onload=function(){
+			var oBtn = document.getElementsByTagName("input");
+			var oDiv = document.getElementById("div1");
+			var oAtt = ["width",'height','background','display','display'];
+			//属性和值，一一对应
+			var oVal = ['200px','200px','red','none','block'];			
+			for(var i=0;i<oBtn.length;i++){
+				//给元素添加一个属性
+				oBtn[i].index = i;
+				oBtn[i].onclick = function(){
+					// alert(this.index);
+					// var temp = oBtn.length - 1 && (oDiv.style.cssText = "");
+					// alert(oBtn.length - 1);
+					// alert(oDiv.style.cssText = "");
+					// alert(temp);
+					// alert(this.index == temp);
+/*					this.index == temp;
+*/			changeStyle(oDiv, oAtt[this.index], oVal[this.index])
+
+				} 
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="outer">
+		<input type="button" value="变宽" />
+		<input type="button" value="变高" />
+		<input type="button" value="变色" />
+		<input type="button" value="隐藏" />
+		<input type="button" value="重置" />
+	</div>	
+	<div id="div1"></div>
+</body>
+</html>
