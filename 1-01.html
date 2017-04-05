@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!--必须约定编码 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>控制div属性</title>
 	<style type="text/css">
 		#outer{
@@ -32,14 +34,9 @@
 				//给元素添加一个属性
 				oBtn[i].index = i;
 				oBtn[i].onclick = function(){
-					// alert(this.index);
-					// var temp = oBtn.length - 1 && (oDiv.style.cssText = "");
-					// alert(oBtn.length - 1);
-					// alert(oDiv.style.cssText = "");
-					// alert(temp);
-					// alert(this.index == temp);
-/*					this.index == temp;
-*/			changeStyle(oDiv, oAtt[this.index], oVal[this.index])
+					//当this.index == 4时，把css设置为0
+					this.index == oBtn.length - 1 && (oDiv.style.cssText = "");				
+					changeStyle(oDiv, oAtt[this.index], oVal[this.index])
 
 				} 
 			}
