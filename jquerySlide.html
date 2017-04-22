@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    p {display: none;}
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li>
+                <h1>
+                    aaaaaa
+                </h1>
+                <p>
+                    this is aaaa test. this is aaaa test. this is aaaa test. this is aaaa test.
+                </p>
+            </li>
+            <li>
+                <h1>
+                    bbbbb
+                </h1>
+                <p>
+                    this is bbbbb test. this is bbbbb test. this is bbbbb test. this is bbbbb test.
+                </p>
+            </li>
+            <li>
+                <h1>
+                    cccccc
+                </h1>
+                <p>
+                    this is bbbbb test.
+                </p>
+            </li>
+            <li>
+                <h1>
+                    ddddddd
+                </h1>
+                <p>
+                    this is ddddddd test.
+                </p>
+            </li>
+        </ul>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+    var mouseover_tid = [];
+    var mouseout_tid = [];
+
+    $(document).ready(function() {
+
+        $('#menu li').each(function(index) {
+
+            $(this).hover(
+                // 鼠标进入        
+                function() {
+                    var _self = this;
+                    // 停止卷起事件      
+                    clearTimeout(mouseout_tid[index]);
+                    // 当鼠标进入超过 0.2 秒, 展开菜单, 并记录到线程 ID 中        
+                    mouseover_tid[index] = setTimeout(function() {
+                        $(_self).find('p').slideDown(500);
+                    }, 200);
+                },
+                // 鼠标离开             
+                function() {
+
+                    var _self = this;
+
+                    // 停止展开事件          
+                    clearTimeout(mouseover_tid[index]);
+
+                    // 当鼠标离开超过 0.2 秒, 卷起菜单, 并记录到线程 ID 中            
+                    mouseout_tid[index] = setTimeout(function() {
+                        jQuery(_self).find('p').slideUp(500);
+                    }, 200);
+                }
+            );
+        });
+    });
+    </script>
+</body>
+
+</html>
